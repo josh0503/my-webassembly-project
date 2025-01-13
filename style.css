@@ -1,79 +1,92 @@
-/* General styles */
+/* 簡單的樣式設定 */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
     background-color: #f4f4f9;
     margin: 0;
     padding: 0;
 }
 
-/* Header */
 header {
-    background-color: #4CAF50;
+    background-color: #0073e6;
     color: white;
     text-align: center;
     padding: 20px;
-    margin-bottom: 20px;
 }
 
-/* Converter section */
+h1 {
+    margin: 0;
+}
+
 .converter {
+    max-width: 600px;
     margin: 20px auto;
-    text-align: center;
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
-    width: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Input section */
 .input-section {
     margin-bottom: 20px;
 }
 
-.input-section input {
-    padding: 10px;
+#decimalInput {
+    padding: 8px;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
     font-size: 16px;
-    width: 60%;
-    max-width: 250px;
-    margin-right: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
 }
 
-.input-section button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #4CAF50;
+button {
+    background-color: #0073e6;
     color: white;
     border: none;
-    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    border-radius: 5px;
 }
 
-.input-section button:hover {
-    background-color: #45a049;
+button:hover {
+    background-color: #005bb5;
 }
 
-/* Result section */
-.result-section {
-    margin-top: 20px;
-    text-align: left;
+/* 結果顯示區 */
+.result-section h3 {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-.result-section p {
+p {
     font-size: 18px;
-    color: #333;
+    margin: 10px 0;
 }
 
-/* Footer */
+/* 小格子的樣式 */
+.color-box {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    border-radius: 3px;
+}
+
+#binaryBox {
+    background-color: #ffcc00; /* 二進位的顏色 */
+}
+
+#octalBox {
+    background-color: #66cc66; /* 八進位的顏色 */
+}
+
+#hexBox {
+    background-color: #cc66ff; /* 十六進位的顏色 */
+}
+
 footer {
     text-align: center;
     padding: 10px;
-    background-color: #4CAF50;
+    background-color: #0073e6;
     color: white;
-    margin-top: 20px;
 }
