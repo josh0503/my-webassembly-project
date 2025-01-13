@@ -54,3 +54,13 @@ function calculateBMI() {
   document.getElementById('bmiResult').textContent = "Your BMI: " + bmi;
   document.getElementById('bmiCategory').textContent = "Category: " + category;
 }
+function clearFields() {
+  // Clear input fields
+  document.getElementById('heightInput').value = "";
+  document.getElementById('weightInput').value = "";
+
+  // Clear output fields
+  document.getElementById('bmiResult').textContent = "Your BMI: ";
+  document.getElementById('bmiCategory').textContent = "Category: ";
+}
+
