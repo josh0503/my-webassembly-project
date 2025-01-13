@@ -159,7 +159,7 @@ footer {
 /* 設置表格標題的背景顏色 */
 .bmi-table th {
     background-color: #f0f0f0;
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 
 /* 為不同分類設置顏色 */
@@ -168,7 +168,7 @@ footer {
 }
 
 .normal {
-    color: #ffeb3b; /* 黃色 */
+    color: #e3c634; /* 黃色 */
 }
 
 .overweight {
@@ -193,9 +193,9 @@ footer {
 }
 
 /* 懸停效果 */
-.bmi-table tr:hover {
+/* .bmi-table tr:hover {
     background-color: #f1f1f1;
-}
+} */
 
 /* Footer */
 footer {
