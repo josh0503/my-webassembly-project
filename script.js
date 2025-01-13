@@ -1,5 +1,5 @@
 document.getElementById('convertButton').addEventListener('click', convert);
-
+document.getElementById('clearCvt').addEventListener('click', clearCvt);
 function convert() {
     const decimal = parseInt(document.getElementById('decimalInput').value);
 
