@@ -195,6 +195,12 @@ canvas.emscripten { border: 0px none; background-color: black; }
           if (text) console.error('[post-exception status] ' + text);
         };
       };
+      window.onload = function() {
+        const emscriptenText = document.querySelector('div[style="display:block;"]'); // 或者使用其他標籤和類選擇器
+        if (emscriptenText) {
+            emscriptenText.remove(); // 刪除 Emscripten 標籤
+        }
+      };
     </script>
     <script async type="text/javascript" src="index.js"></script>
   </body>
