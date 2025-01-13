@@ -19,6 +19,15 @@ function convert() {
     document.getElementById('octalResult').textContent = "八進位(Octal) : " + "0" + octal;
     document.getElementById('hexResult').textContent = "十六進位(Hexadecimal) : " + "0x" + hexadecimal;
 }
+function clearCvt() {
+  // Clear input fields
+  document.getElementById('decimalInput').value = "";
+
+  // Clear output fields
+  document.getElementById('binaryResult').textContent = "二進位(Binary) : ";
+  document.getElementById('octalResult').textContent = "八進位(Octal) : ";
+  document.getElementById('hexResult').textContent = "十六進位(Hexadecimal) : ";
+}
 // <!-------------------------------------------------------------------------------------------------------->
 function calculateBMI() {
   // Get height and weight input values
@@ -54,7 +63,7 @@ function calculateBMI() {
   document.getElementById('bmiResult').textContent = "Your BMI: " + bmi;
   document.getElementById('bmiCategory').textContent = "Category: " + category;
 }
-function clearFields() {
+function clearBMI() {
   // Clear input fields
   document.getElementById('heightInput').value = "";
   document.getElementById('weightInput').value = "";

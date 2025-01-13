@@ -56,7 +56,7 @@ button:hover {
 /* 結果顯示區 */
 .result-section p {
     display: flex;  /* 啟用 Flexbox */
-    align-items: left;  /* 垂直居中對齊 */
+    align-items: left;  /* 靠左對齊 */
 }
 
 p {
