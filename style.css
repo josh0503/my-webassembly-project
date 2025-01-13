@@ -52,6 +52,17 @@ button {
 button:hover {
     background-color: #005bb5;
 }
+
+/* 結果顯示區 */
+.result-section p {
+    display: flex;  /* 啟用 Flexbox */
+    align-items: left;  /* 垂直居中對齊 */
+}
+
+p {
+    font-size: 18px;
+    margin: 10px 0;
+}
 /* -------------------------------------------------------------------------------------------------- */
 /* BMI Calculator section */
 .bmi-calculator {
