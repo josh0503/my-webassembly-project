@@ -74,7 +74,7 @@ p {
 }
 
 #binaryBox {
-    background-color: rgba(0, 115, 230, 0.2); /* 淺藍色 */
+    background-color: rgb(255, 255, 255); /* 淺藍色 */
 }
 
 #octalBox {
