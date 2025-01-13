@@ -91,3 +91,79 @@ footer {
     background-color: #0073e6;
     color: white;
 }
+
+/* -------------------------------------------------------------------------------------------------- */
+/* BMI Calculator section */
+.bmi-calculator {
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.input-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.input-section input {
+    padding: 10px;
+    font-size: 16px;
+    margin: 5px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.input-section button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.input-section button:hover {
+    background-color: #0056b3;
+}
+
+/* Result section */
+.result-section {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+}
+
+/* BMI table */
+.bmi-table {
+    margin-top: 20px;
+}
+
+.bmi-table table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: auto;
+}
+
+.bmi-table th,
+.bmi-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+.bmi-table th {
+    background-color: #f0f0f0;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    margin-top: 20px;
+}
