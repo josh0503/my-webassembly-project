@@ -153,14 +153,14 @@ footer {
 
 .bmi-table th,
 .bmi-table td {
-    border: 1px solid #ccc;
+    border: 1px solid #ffffff;
     padding: 10px;
     text-align: center;
 }
 
 /* 設置表格標題的背景顏色 */
 .bmi-table th {
-    background-color: #f0f0f0;
+    background-color: #ffffff;
     /* font-weight: bold; */
 }
 
@@ -189,15 +189,11 @@ footer {
     color: #ff0000; /* 紅色 */
 }
 
-/* 偶數行的背景顏色 */
-.bmi-table tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
 
 /* 懸停效果 */
-/* .bmi-table tr:hover {
+.bmi-table tr:hover {
     background-color: #f1f1f1;
-} */
+}
 
 /* Footer */
 footer {
