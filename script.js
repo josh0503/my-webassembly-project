@@ -16,6 +16,6 @@ function convert() {
 
     // 顯示結果
     document.getElementById('binaryResult').textContent = "Binary: " + binary;
-    document.getElementById('octalResult').textContent = "Octal: " + octal;
-    document.getElementById('hexResult').textContent = "Hexadecimal: " + hexadecimal;
+    document.getElementById('octalResult').textContent = "Octal: " + "0" + octal;
+    document.getElementById('hexResult').textContent = "Hexadecimal: " + "0x" + hexadecimal;
 }
