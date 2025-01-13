@@ -66,36 +66,23 @@ p {
 
 /* 長條格子樣式 */
 .color-box {
-    display: inline-block;
     width: 80px; /* 設置為較長條的寬度 */
-    height: 20px; /* 設置較小的高度 */
+    height: 15px; /* 設置較小的高度 */
     margin-left: 10px;
     /* border-radius: 5px; 讓角稍微圓滑 */
     border: 1px solid black; /* 黑色邊線 */
 }
 
 #binaryBox {
-    padding: 8px;
-    width: 90%;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-size: 16px;
+    background-color: rgb(255, 255, 255); /* 白色 */
 }
 
 #octalBox {
-    padding: 8px;
-    width: 90%;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-size: 16px;
+    background-color: rgb(255, 255, 255); /* 白色 */
 }
 
 #hexBox {
-    padding: 8px;
-    width: 90%;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-size: 16px;
+    background-color: rgb(255, 255, 255); /* 白色 */
 }
 
 footer {
