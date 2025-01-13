@@ -164,27 +164,27 @@ footer {
 
 /* 為不同分類設置顏色 */
 .underweight {
-    color: #32cd32; /* 綠色 */
+    color: #04baa5; /* 藍色 */
 }
 
 .normal {
-    color: #e3c634; /* 黃色 */
+    color: #91ff00; /* 綠色 */
 }
 
 .overweight {
-    color: #ffa500; /* 橙色 */
+    color: #fff200; /* 黃色 */
 }
 
 .obese-mild {
-    color: #ff69b4; /* 桃紅色 */
+    color: #ff7300; /* 橙色 */
 }
 
 .obese-moderate {
-    color: #ff0000; /* 一般紅色 */
+    color: #ff4d4d; /* 桃紅色 */
 }
 
 .obese-severe {
-    color: #8b0000; /* 濃紅色 */
+    color: #ff0000; /* 紅色 */
 }
 
 /* 偶數行的背景顏色 */
