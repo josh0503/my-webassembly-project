@@ -15,7 +15,7 @@ function convert() {
     const hexadecimal = decimal.toString(16).toUpperCase();
 
     // 顯示結果
-    document.getElementById('binaryResult').textContent = "二進位(Binary): " + binary;
-    document.getElementById('octalResult').textContent = "八進位(Octal): " + "0" + octal;
-    document.getElementById('hexResult').textContent = "十六進位(Hexadecimal): " + "0x" + hexadecimal;
+    document.getElementById('binaryResult').textContent = "二進位(Binary) : " + binary;
+    document.getElementById('octalResult').textContent = "八進位(Octal) : " + "0" + octal;
+    document.getElementById('hexResult').textContent = "十六進位(Hexadecimal) : " + "0x" + hexadecimal;
 }
