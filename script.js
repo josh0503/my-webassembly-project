@@ -91,10 +91,13 @@ function updateChart(symbol) {
     withdateranges: true,
     allow_symbol_change: true,
     studies: [
-      "BB@tv-basicstudies",    // 布林通道
-      "MAExp@tv-basicstudies", // 均線
-      "RSI@tv-basicstudies",   // RSI
-    ],
+      "BB@tv-basicstudies",           // 布林通道
+      "SMA5@tv-basicstudies",         // 5 日 SMA
+      "SMA20@tv-basicstudies",        // 20 日 SMA
+      "RSI@tv-basicstudies",          // RSI
+      "PPO@tv-basicstudies",          // 乖離率 (Percentage Price Oscillator)
+      "Volume@tv-basicstudies"        // 成交量
+  ],
     locale: "zh_TW",
   });
 }
