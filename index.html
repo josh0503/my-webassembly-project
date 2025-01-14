@@ -62,27 +62,27 @@
               </thead>
               <tbody>
                   <tr>
-                      <td class="underweight">過輕(underweight)</td>
+                      <td class="underweight">過輕(Underweight)</td>
                       <td>BMI &lt; 18.5</td>
                   </tr>
                   <tr>
-                      <td class="normal">正常(normal)</td>
+                      <td class="normal">正常(Normal)</td>
                       <td>18.5 ≤ BMI &lt; 24</td>
                   </tr>
                   <tr>
-                      <td class="overweight">過重(overweight)</td>
+                      <td class="overweight">過重(Overweight)</td>
                       <td>24 ≤ BMI &lt; 27</td>
                   </tr>
                   <tr>
-                      <td class="obese-mild">輕度肥胖(obese-mild)</td>
+                      <td class="obese-mild">輕度肥胖(Obese-mild)</td>
                       <td>27 ≤ BMI &lt; 30</td>
                   </tr>
                   <tr>
-                      <td class="obese-moderate">中度肥胖(obese-moderate)</td>
+                      <td class="obese-moderate">中度肥胖(Obese-moderate)</td>
                       <td>30 ≤ BMI &lt; 35</td>
                   </tr>
                   <tr>
-                      <td class="obese-severe">重度肥胖(obese-severe)</td>
+                      <td class="obese-severe">重度肥胖(Obese-severe)</td>
                       <td>BMI ≥ 35</td>
                   </tr>
               </tbody>
@@ -102,7 +102,6 @@
 </body>
   <main>
     <section class="stock-buttons">
-        <div class="stk-button-container">
           <h2>Stock</h2>
           <p class="explanation-text">因為台股有權限的限制所以目前只提供美股</p>
           <!-- <button onclick="updateChart('DJI')">道瓊指數 (DJI)</button> -->
@@ -113,9 +112,6 @@
           <stk-button onclick="updateChart('IXIC')">納斯達克指數 (IXIC)</stk-button>
           <stk-button onclick="updateChart('SOX')">費城半導體 (SOX)</stk-button>
           <stk-button onclick="updateChart('TSM')">台積電 (TSM)</stk-button>
-      </div>
-    </section>
-    <section class="stk-chart-container">
       <div id="tradingview-widget"></div>
     </section>
   </main>

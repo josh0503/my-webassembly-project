@@ -46,17 +46,17 @@ function calculateBMI() {
   // Determine BMI category
   let category = "";
   if (bmi < 18.5) {
-      category = "Underweight";
+      category = "體重過輕(Underweight)";
   } else if (bmi < 24) {
-      category = "Normal";
+      category = "正常(Normal)";
   } else if (bmi < 27) {
-      category = "Overweight";
+      category = "過重(Overweight)";
   } else if (bmi < 30) {
-      category = "Obese (Mild)";
+      category = "輕度肥胖(Obese-mild)";
   } else if (bmi < 35) {
-      category = "Obese (Moderate)";
+      category = "中度肥胖(Obese-moderate)";
   } else {
-      category = "Obese (Severe)";
+      category = "重度肥胖(Obese-severe)";
   }
 
   // Display results
