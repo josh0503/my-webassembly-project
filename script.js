@@ -81,7 +81,7 @@ function updateChart(symbol) {
   new TradingView.widget({
     container_id: "tradingview-widget",
     width: "100%",
-    height: "500",
+    height: "1000",
     symbol: symbol,
     interval: "D", // 日線
     timezone: "Asia/Taipei",
@@ -92,8 +92,6 @@ function updateChart(symbol) {
     allow_symbol_change: true,
     studies: [
       "BB@tv-basicstudies",           // 布林通道
-      "SMA5@tv-basicstudies",         // 5 日 SMA
-      "SMA20@tv-basicstudies",        // 20 日 SMA
       "RSI@tv-basicstudies",          // RSI
       "PPO@tv-basicstudies",          // 乖離率 (Percentage Price Oscillator)
       "Volume@tv-basicstudies"        // 成交量
