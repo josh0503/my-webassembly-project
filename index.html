@@ -114,15 +114,7 @@
 
       <!-- TradingView 圖表 -->
       <section id="tradingview-container">
-          <div id="tradingview-widget" style="height: 400px;"></div>
-      </section>
-
-      <!-- Alpha Vantage 數據展示 -->
-      <section id="api-results">
-          <h2>Alpha Vantage 技術指標</h2>
-          <button onclick="fetchAlphaVantageData()">獲取 RSI & 布林通道</button>
-          <div id="rsi-result"></div>
-          <div id="bollinger-result"></div>
+          <div id="tradingview-widget" style="height: 1000px;"></div>
       </section>
   </main>
 </body>
@@ -134,10 +126,10 @@
           container_id: "tradingview-widget",
           width: "50%",
           height: "100%",
-          symbol: "NASDAQ:AAPL", // 預設顯示股票
+          symbol: "NVDA:TSLA:AAPL", // 預設顯示股票
           interval: "D",
           timezone: "Asia/Taipei",
-          theme: "light",
+          theme: "dark",
           style: "1", // K線圖樣式
           locale: "zh_TW",
           toolbar_bg: "#f1f3f6", // 工具欄背景
@@ -155,8 +147,6 @@
 <!----------------------------------------------------------------------------------------------------------------------------------------------------->
 <footer>
   <p>Created by <strong>Yu Chen Lee</strong></p>
-  <!-- 網頁瀏覽計數 -->
-  <p>瀏覽人數: <span id="visitorCount"></span></p>
 </footer>
 <script src="script.js"></script>
 </html>

@@ -73,87 +73,27 @@ function clearBMI() {
   document.getElementById('bmiCategory').textContent = "Category: ";
 }
 // <!-------------------------------------------------------------------------------------------------------->
-new TradingView.widget({
-  container_id: "tradingview-widget",
-  symbol: "NASDAQ:AAPL", // 替換為你想分析的股票代碼
-  interval: "D",
-  timezone: "Asia/Taipei",
-  theme: "dark",
-  style: "1",
-  toolbar_bg: "#f1f3f6",
-  withdateranges: true,
-  allow_symbol_change: true,
-  studies: [
-      "BB@tv-basicstudies",    // 布林通道
-      "MAExp@tv-basicstudies", // 均線
-      "RSI@tv-basicstudies",    // RSI
-      "MACD@tv-basicstudies",   // MACD
-      "Stochastic@tv-basicstudies", // 隨機指標
-      "Volume@tv-basicstudies"  // 成交量
-  ],
-  locale: "zh_TW"
-});
 // 初始化 TradingView 圖表
 function updateChart() {
   const symbol = document.getElementById("stockSymbol").value || "NASDAQ:AAPL";
   new TradingView.widget({
-      container_id: "tradingview-widget",
-      symbol: symbol,
-      interval: "D",
-      timezone: "Asia/Taipei",
-      theme: "light",
-      style: "1",
-      locale: "zh_TW",
-      allow_symbol_change: true,
-      studies: ["RSI@tv-basicstudies", "BB@tv-basicstudies"],
+    container_id: "tradingview-widget",
+    symbol: "NASDAQ:AAPL", // 替換為你想分析的股票代碼
+    interval: "D",
+    timezone: "Asia/Taipei",
+    theme: "dark",
+    style: "1",
+    toolbar_bg: "#f1f3f6",
+    withdateranges: true,
+    allow_symbol_change: true,
+    studies: [
+        "BB@tv-basicstudies",    // 布林通道
+        "MAExp@tv-basicstudies", // 均線
+        "RSI@tv-basicstudies",    // RSI
+        "MACD@tv-basicstudies",   // MACD
+        "Stochastic@tv-basicstudies", // 隨機指標
+        "Volume@tv-basicstudies"  // 成交量
+    ],
+    locale: "zh_TW"
   });
 }
-
-// 使用 Alpha Vantage API 獲取數據
-async function fetchAlphaVantageData() {
-  const apiKey = "YOUR_ALPHA_VANTAGE_API_KEY"; // 在 Alpha Vantage 註冊免費獲取
-  const symbol = document.getElementById("stockSymbol").value || "MSFT";
-  const rsiUrl = `https://www.alphavantage.co/query?function=RSI&symbol=${symbol}&interval=daily&time_period=14&series_type=close&apikey=${apiKey}`;
-  const bbUrl = `https://www.alphavantage.co/query?function=BBANDS&symbol=${symbol}&interval=daily&time_period=14&series_type=close&apikey=${apiKey}`;
-
-  try {
-      // 獲取 RSI 資料
-      const rsiResponse = await fetch(rsiUrl);
-      const rsiData = await rsiResponse.json();
-      const rsiValue = rsiData["Technical Analysis: RSI"] ? 
-          Object.values(rsiData["Technical Analysis: RSI"])[0]["RSI"] : "無法獲取數據";
-      document.getElementById("rsi-result").innerText = `RSI: ${rsiValue}`;
-
-      // 獲取布林通道資料
-      const bbResponse = await fetch(bbUrl);
-      const bbData = await bbResponse.json();
-      const bbValue = bbData["Technical Analysis: BBANDS"] ? 
-          Object.values(bbData["Technical Analysis: BBANDS"])[0] : {};
-      document.getElementById("bollinger-result").innerText = 
-          `布林通道: 上軌 ${bbValue["Real Upper Band"]}, 中軌 ${bbValue["Real Middle Band"]}, 下軌 ${bbValue["Real Lower Band"]}`;
-  } catch (error) {
-      console.error("Error fetching data:", error);
-  }
-}
-
-// 訪問計數器
-const visitCountElement = document.getElementById('visitorCount');
-
-// 使用 CountAPI 設置唯一的命名空間（namespace）和鍵（key）
-const namespace = "josh0503"; // 建議使用 GitHub 用戶名
-const key = "my-webassembly-project";
-
-// 訪問 CountAPI
-fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
-    .then(response => response.json())
-    .then(data => {
-        // 將訪問次數顯示在頁面上
-        visitCountElement.textContent = `訪問次數：${data.value}`;
-    })
-    .catch(error => {
-        // 處理錯誤情況
-        visitCountElement.textContent = "無法加載訪問次數";
-        console.error("訪問次數加載失敗:", error);
-    });
-
-
