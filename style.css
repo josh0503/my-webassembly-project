@@ -202,11 +202,11 @@ footer {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-.stock-buttons {
+.stk-button {
     text-align: center;
     margin: 20px auto;
   }
-  
+
 .stk-button-container {
     display: flex;
     justify-content: center;
