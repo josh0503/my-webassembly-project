@@ -38,7 +38,7 @@ h2 {
 
 #decimalInput {
     padding: 8px;
-    width: 50%;
+    width: 30%;
     margin-top: 10px;
     margin-bottom: 10px;
     font-size: 16px;
@@ -79,12 +79,12 @@ p {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.input-section {
+.bmi-input-section {
     text-align: center;
     margin-bottom: 20px;
 }
 
-.input-section input {
+.bmi-input-section input {
     padding: 10px;
     font-size: 16px;
     margin: 5px;
@@ -93,7 +93,7 @@ p {
     border-radius: 4px;
 }
 
-.input-section button {
+.bmi-input-section button {
     padding: 10px 20px;
     font-size: 16px;
     background-color: #007BFF;
@@ -103,12 +103,12 @@ p {
     cursor: pointer;
 }
 
-.input-section button:hover {
+.bmi-input-section button:hover {
     background-color: #0056b3;
 }
 
 /* Result section */
-.result-section {
+.bmi-result-section {
     text-align: center;
     margin-top: 20px;
     font-size: 18px;
@@ -184,7 +184,7 @@ footer {
     margin: 20px auto;
   }
   
-  .button-container {
+  .stk-button-container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -192,7 +192,7 @@ footer {
     margin-top: 20px;
   }
   
-  button {
+  stk-button {
     padding: 8px 16px;
     font-size: 16px;
     background-color: #007BFF;
@@ -202,11 +202,11 @@ footer {
     cursor: pointer;
   }
   
-  button:hover {
-    background-color: #007BFF;
+  stk-button:hover {
+    background-color: #ff0000;
   }
   
-  .chart-container {
+  .stk-chart-container {
     max-width: 1000px;
     margin: 20px auto;
     padding: 20px;

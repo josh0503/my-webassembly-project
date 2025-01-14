@@ -36,17 +36,17 @@
 </head>
 <body>
   <section class="bmi-calculator">
-      <div class="input-section">
+      <div class="bmi-input-section">
         <h2>BMI Calculator</h2>
         <label for="heightInput">Height (cm):</label>
         <input type="number" id="heightInput" placeholder="Enter height in cm" />
         <label for="weightInput">Weight (kg):</label>
         <input type="number" id="weightInput" placeholder="Enter weight in kg" />
-        <button onclick="calculateBMI()">Calculate</button>
-        <button onclick="clearBMI()">Clear</button>
+        <bmi-button onclick="calculateBMI()">Calculate</bmi-button>
+        <bmi-button onclick="clearBMI()">Clear</bmi-button>
       </div>
 
-      <div class="result-section">
+      <div class="bmi-result-section">
           <p id="bmiResult">Your BMI: </p>
           <p id="bmiCategory">Category: </p>
       </div>
@@ -91,6 +91,7 @@
   </section>
 </body>
 <!----------------------------------------------------------------------------------------------------------------------------------------------------->
+<!-- Stock -->
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -98,25 +99,23 @@
   <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
-
 </body>
   <main>
     <section class="stock-buttons">
-        <div class="button-container">
+        <div class="stk-button-container">
           <h2>Stock</h2>
           <p class="explanation-text">因為台股有權限的限制所以目前只提供美股</p>
           <!-- <button onclick="updateChart('DJI')">道瓊指數 (DJI)</button> -->
           <!-- <button onclick="updateChart('SPX')">標普500 (SPX)</button> -->
-          <button onclick="updateChart('NVDA')">輝達 (NVDA)</button>
-          <button onclick="updateChart('TSLA')">特斯拉 (TSLA)</button>
-          <button onclick="updateChart('AAPL')">蘋果 (AAPL)</button>
-          <button onclick="updateChart('IXIC')">納斯達克指數 (IXIC)</button>
-          <button onclick="updateChart('SOX')">費城半導體 (SOX)</button>
-          <button onclick="updateChart('TSM')">台積電 (TSM)</button>
+          <stk-button onclick="updateChart('NVDA')">輝達 (NVDA)</stk-button>
+          <stk-button onclick="updateChart('TSLA')">特斯拉 (TSLA)</stk-button>
+          <stk-button onclick="updateChart('AAPL')">蘋果 (AAPL)</stk-button>
+          <stk-button onclick="updateChart('IXIC')">納斯達克指數 (IXIC)</stk-button>
+          <stk-button onclick="updateChart('SOX')">費城半導體 (SOX)</stk-button>
+          <stk-button onclick="updateChart('TSM')">台積電 (TSM)</stk-button>
       </div>
     </section>
-
-    <section class="chart-container">
+    <section class="stk-chart-container">
       <div id="tradingview-widget"></div>
     </section>
   </main>
