@@ -11,16 +11,16 @@
         <h1>Welcome to 昱辰的小天地</h1>
     </header>
 
-    <section class="converter">
-        <div class="input-section">
+    <section class="demical-converter">
+        <div class="dc-input-section">
             <h2>十進位轉換器</h2>
             <label for="decimalInput">輸入十進位(Decimal):</label>
             <input type="number" id="decimalInput" placeholder="Enter decimal value" />
-            <button id="convertButton">Convert</button>
-            <button id="clearCvt">Clear</button>
+            <dc-button id="convertButton">Convert</dc-button>
+            <dc-button id="clearCvt">Clear</dc-button>
         </div>
 
-        <div class="result-section">
+        <div class="dc-result-section">
             <h3>轉換結果</h3>
             <p id="binaryResult">二進位(Binary): </p>
             <p id="octalResult">八進位(Octal): </p>
@@ -104,7 +104,6 @@
     <section class="stock-buttons">
         <div class="button-container">
           <h2>Stock</h2>
-          <!-- <label class="explanation-text">因為台股有權限的限制所以目前只提供美股</label> -->
           <p class="explanation-text">因為台股有權限的限制所以目前只提供美股</p>
           <!-- <button onclick="updateChart('DJI')">道瓊指數 (DJI)</button> -->
           <!-- <button onclick="updateChart('SPX')">標普500 (SPX)</button> -->
