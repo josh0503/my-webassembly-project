@@ -81,7 +81,7 @@ function updateChart(symbol) {
   new TradingView.widget({
     container_id: "tradingview-widget",
     width: "100%",
-    height: "1000",
+    height: "800",
     symbol: symbol,
     interval: "D", // 日線
     timezone: "Asia/Taipei",
