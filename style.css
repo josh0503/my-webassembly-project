@@ -107,6 +107,20 @@ p {
     background-color: #0056b3;
 }
 
+bmi-button {
+    background-color: #00e62a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+bmi-button:hover {
+    background-color: #00b50cc5;
+}
+
 /* Result section */
 .bmi-result-section {
     text-align: center;
