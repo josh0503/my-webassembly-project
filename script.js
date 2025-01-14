@@ -75,7 +75,6 @@ function clearBMI() {
 // <!-------------------------------------------------------------------------------------------------------->
 new TradingView.widget({
   container_id: "tradingview-widget",
-  autosize: true,
   symbol: "NASDAQ:AAPL", // 替換為你想分析的股票代碼
   interval: "D",
   timezone: "Asia/Taipei",
