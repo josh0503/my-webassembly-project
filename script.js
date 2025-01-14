@@ -106,7 +106,7 @@ function clearBMI() {
 // }
 
 // 替換為您的 Alpha Vantage API 金鑰
-const API_KEY = "YOUR_ALPHA_VANTAGE_API_KEY";
+const API_KEY = "B4OBQNI5TB9ZJ9TA";
 
 // 使用 Alpha Vantage API 獲取股票資料
 async function fetchStockData(symbol) {
