@@ -78,7 +78,7 @@ function updateChart() {
   const symbol = document.getElementById("stockSymbol").value || "NASDAQ:AAPL";
   new TradingView.widget({
     container_id: "tradingview-widget",
-    width: "50%",
+    width: "100%",
     height: "150%",
     symbol: "NVDA:TSLA:AAPL", // 替換為你想分析的股票代碼
     interval: "D",
