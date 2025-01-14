@@ -176,10 +176,10 @@ footer {
 /* -------------------------------------------------------------------------------------------------- */
 /* Stock */
 .stock-chart {
-    max-width: 500px;
+    max-width: 100px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #df1414;
+    background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
