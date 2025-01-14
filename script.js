@@ -137,15 +137,24 @@ async function fetchAlphaVantageData() {
   }
 }
 
-// 瀏覽人數計數
-async function updateVisitorCount() {
-  try {
-      const response = await fetch("https://api.countapi.xyz/hit/your-domain/visitor");
-      const data = await response.json();
-      document.getElementById("visitorCount").innerText = data.value;
-  } catch (error) {
-      console.error("Error updating visitor count:", error);
-  }
-}
-updateVisitorCount();
+// 訪問計數器
+const visitCountElement = document.getElementById('visitorCount');
+
+// 使用 CountAPI 設置唯一的命名空間（namespace）和鍵（key）
+const namespace = "josh0503"; // 建議使用 GitHub 用戶名
+const key = "my-webassembly-project";
+
+// 訪問 CountAPI
+fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
+    .then(response => response.json())
+    .then(data => {
+        // 將訪問次數顯示在頁面上
+        visitCountElement.textContent = `訪問次數：${data.value}`;
+    })
+    .catch(error => {
+        // 處理錯誤情況
+        visitCountElement.textContent = "無法加載訪問次數";
+        console.error("訪問次數加載失敗:", error);
+    });
+
 
