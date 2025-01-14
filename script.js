@@ -73,9 +73,12 @@ function clearBMI() {
   document.getElementById('bmiCategory').textContent = "Category: ";
 }
 // <!-------------------------------------------------------------------------------------------------------->
+document.addEventListener("DOMContentLoaded", () => {
+  updateChart("NVDA"); // 預設顯示 Apple (AAPL) 的圖表
+});
 function updateChart(symbol) {
-  // 清空舊的圖表內容
-  document.getElementById("tradingview-widget").innerHTML = "";
+  const widgetContainer = document.getElementById("tradingview-widget");
+  widgetContainer.innerHTML = ""; // 清除舊圖表
 
   // 新增 TradingView 圖表
   new TradingView.widget({
