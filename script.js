@@ -83,8 +83,8 @@ function updateChart(symbol) {
   // 新增 TradingView 圖表
   new TradingView.widget({
     container_id: "tradingview-widget",
-    width: "80%",
-    height: "800",
+    width: "90%",
+    height: "700",
     symbol: symbol,
     interval: "D", // 日線
     timezone: "Asia/Taipei",
