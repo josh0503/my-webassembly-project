@@ -72,4 +72,22 @@ function clearBMI() {
   document.getElementById('bmiResult').textContent = "Your BMI: ";
   document.getElementById('bmiCategory').textContent = "Category: ";
 }
-
+// <!-------------------------------------------------------------------------------------------------------->
+new TradingView.widget({
+  container_id: "tradingview-widget",
+  autosize: true,
+  symbol: "NASDAQ:AAPL", // 替換為你想分析的股票代碼
+  interval: "D",
+  timezone: "Asia/Taipei",
+  theme: "light",
+  style: "1",
+  toolbar_bg: "#f1f3f6",
+  withdateranges: true,
+  allow_symbol_change: true,
+  studies: [
+      "BB@tv-basicstudies",    // 布林通道
+      "MAExp@tv-basicstudies", // 均線
+      "RSI@tv-basicstudies"    // RSI
+  ],
+  locale: "zh_TW"
+});
