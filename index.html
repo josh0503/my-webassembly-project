@@ -111,11 +111,6 @@
           <input type="text" id="stockSymbol" placeholder="輸入股票代碼 (如: MSFT)" />
           <button onclick="updateChart()">顯示圖表</button>
       </section>
-
-      <!-- TradingView 圖表 -->
-      <section id="tradingview-container">
-          <div id="tradingview-widget" style="height: 1000px;"></div>
-      </section>
   </main>
 </body>
 
@@ -124,7 +119,7 @@
   <script>
       new TradingView.widget({
           container_id: "tradingview-widget",
-          width: "50%",
+          width: "100%",
           height: "100%",
           symbol: "NVDA:TSLA:AAPL", // 預設顯示股票
           interval: "D",
