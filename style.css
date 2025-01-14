@@ -174,73 +174,46 @@ footer {
     margin-top: 20px;
 }
 /* -------------------------------------------------------------------------------------------------- */
-/* Stock Chart Section */
 .stock-chart {
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: white;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-}
-
-/* 股票輸入區 */
-.input-section {
+  }
+  
+  .input-section {
     text-align: center;
     margin-bottom: 20px;
-}
-
-.input-section input {
+  }
+  
+  .input-section input {
     padding: 10px;
     font-size: 16px;
-    margin: 5px;
     width: 300px;
+    margin-right: 10px;
     border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.input-section button {
+    border-radius: 5px;
+  }
+  
+  .input-section button {
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #4CAF50;
+    background-color: #007BFF;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-}
-
-.input-section button:hover {
-    background-color: #45a049;
-}
-
-/* 股票清單區 */
-.stock-list {
-    margin: 20px 0;
-    text-align: center;
-}
-
-.stock-list ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.stock-list li {
-    display: inline-block;
-    margin: 0 10px;
-    padding: 10px 20px;
-    background-color: #e0e0e0;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.stock-list li:hover {
-    background-color: #ccc;
-}
-
-/* TradingView 圖表容器 */
-.chart-container {
+  }
+  
+  .input-section button:hover {
+    background-color: #0056b3;
+  }
+  
+  .chart-container {
     margin-top: 20px;
-    width: 100%;
-    height: 600px;
-    background-color: #f4f4f9;
-}
+    position: relative;
+    height: 400px;
+  }
+  

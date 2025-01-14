@@ -103,14 +103,16 @@
 </header>
 </body>
   <main>
-  <!-- 股票輸入與圖表區 -->
-  <section class="stock-chart">
+    <!-- 股票輸入與圖表區 -->
+    <section class="stock-chart">
       <div class="input-section">
-        <h2>股票代碼查詢</h2>
+        <h2>查詢股票代碼</h2>
         <input type="text" id="stockSymbol" placeholder="輸入股票代碼 (如: 2330.TW)" />
         <button onclick="updateChart()">顯示圖表</button>
+      </div>  
+      <div class="chart-container">
+       <canvas id="stockChart"></canvas>
       </div>
-
       <!-- 預設權值股列表 -->
       <div class="stock-list">
         <h3>熱門股票代碼快速選擇</h3>
@@ -124,9 +126,9 @@
         </ul>
       </div>
 
-      <!-- TradingView 圖表容器 -->
-      <div id="tradingview-widget" class="chart-container"></div>
-  </section>
+        <!-- TradingView 圖表容器 -->
+        <div id="tradingview-widget" class="chart-container"></div>
+    </section>
   </main>
 </body>
 <!----------------------------------------------------------------------------------------------------------------------------------------------------->
