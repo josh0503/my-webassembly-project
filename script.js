@@ -73,29 +73,34 @@ function clearBMI() {
   document.getElementById('bmiCategory').textContent = "Category: ";
 }
 // <!-------------------------------------------------------------------------------------------------------->
-// 初始化 TradingView 圖表
 function updateChart() {
-  const symbol = document.getElementById("stockSymbol").value || "NASDAQ:AAPL";
+  const symbol = document.getElementById("stockSymbol").value || "2330.TW";
   new TradingView.widget({
     container_id: "tradingview-widget",
-    width: "100%",
-    height: "150%",
-    symbol: "NVDA:TSLA:AAPL", // 替換為你想分析的股票代碼
-    interval: "D",
+    width: "100%", // 圖表寬度設定為全寬
+    height: 600,   // 增加圖表高度
+    symbol: symbol, // 使用動態輸入的股票代碼
+    interval: "D",  // K 線時間間隔為日線
     timezone: "Asia/Taipei",
-    theme: "dark",
-    style: "1", // K線圖樣式
+    theme: "dark",  // 深色主題
+    style: "1",     // K 線圖樣式
     toolbar_bg: "#f1f3f6",
     withdateranges: true,
     allow_symbol_change: true,
     studies: [
         "BB@tv-basicstudies",    // 布林通道
         "MAExp@tv-basicstudies", // 均線
-        "RSI@tv-basicstudies",    // RSI
-        "MACD@tv-basicstudies",   // MACD
+        "RSI@tv-basicstudies",   // RSI
+        "MACD@tv-basicstudies",  // MACD
         "Stochastic@tv-basicstudies", // 隨機指標
         "Volume@tv-basicstudies"  // 成交量
     ],
-    locale: "zh_TW"
+    locale: "zh_TW" // 繁體中文介面
   });
+}
+
+// 預設股票代碼選擇
+function selectStock(stock) {
+  document.getElementById("stockSymbol").value = stock;
+  updateChart();
 }

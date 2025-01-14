@@ -98,48 +98,36 @@
   <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <header>
-      <h1>TradingView 全功能圖表</h1>
-  </header>
-  
-<body>
-  <main>
-    <!-- 股票輸入區 -->
-    <section class="stock-chart">
-        <div class="input-section">
-          <h2>查詢股票代碼</h2>
-          <input type="text" id="stockSymbol" placeholder="輸入股票代碼 (如: NVDA)" />
-          <button onclick="updateChart()">顯示圖表</button>
-        </div>
-    </section>
-  </main>
+<header>
+  <h1>股票分析與技術指標</h1>
+</header>
 </body>
+  <main>
+  <!-- 股票輸入與圖表區 -->
+  <section class="stock-chart">
+      <div class="input-section">
+        <h2>股票代碼查詢</h2>
+        <input type="text" id="stockSymbol" placeholder="輸入股票代碼 (如: 2330.TW)" />
+        <button onclick="updateChart()">顯示圖表</button>
+      </div>
 
-  <div id="tradingview-widget"></div>
+      <!-- 預設權值股列表 -->
+      <div class="stock-list">
+        <h3>熱門股票代碼快速選擇</h3>
+        <ul>
+          <li onclick="selectStock('2330.TW')">台積電 (2330.TW)</li>
+          <li onclick="selectStock('2317.TW')">鴻海 (2317.TW)</li>
+          <li onclick="selectStock('2382.TW')">廣達 (2382.TW)</li>
+          <li onclick="selectStock('2454.TW')">聯發科 (2454.TW)</li>
+          <li onclick="selectStock('2303.TW')">聯電 (2303.TW)</li>
+          <li onclick="selectStock('3008.TW')">大立光 (3008.TW)</li>
+        </ul>
+      </div>
 
-  <!-- <script>
-      new TradingView.widget({
-          container_id: "tradingview-widget",
-          width: "50%",
-          height: "150%",
-          symbol: "NVDA:TSLA:AAPL", // 預設顯示股票
-          interval: "D",
-          timezone: "Asia/Taipei",
-          theme: "dark",
-          style: "1", // K線圖樣式
-          locale: "zh_TW",
-          toolbar_bg: "#f1f3f6", // 工具欄背景
-          enable_publishing: false, // 禁止分享功能
-          hide_side_toolbar: false, // 顯示側邊工具欄
-          allow_symbol_change: true, // 允許更換股票
-          withdateranges: true, // 顯示日期範圍選擇
-          details: true, // 顯示詳細數據
-          hotlist: true, // 顯示熱門股票
-          calendar: true, // 顯示經濟日曆
-          studies: ["BB@tv-basicstudies", "RSI@tv-basicstudies"], // 預設技術指標
-      });
-  </script> -->
+      <!-- TradingView 圖表容器 -->
+      <div id="tradingview-widget" class="chart-container"></div>
+  </section>
+  </main>
 </body>
 <!----------------------------------------------------------------------------------------------------------------------------------------------------->
 <footer>
