@@ -83,7 +83,7 @@ function updateChart(symbol) {
   // 新增 TradingView 圖表
   new TradingView.widget({
     container_id: "tradingview-widget",
-    width: "50%",
+    width: "80%",
     height: "800",
     symbol: symbol,
     interval: "D", // 日線
