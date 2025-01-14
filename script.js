@@ -78,11 +78,13 @@ function updateChart() {
   const symbol = document.getElementById("stockSymbol").value || "NASDAQ:AAPL";
   new TradingView.widget({
     container_id: "tradingview-widget",
-    symbol: "NASDAQ:AAPL", // 替換為你想分析的股票代碼
+    width: "50%",
+    height: "150%",
+    symbol: "NVDA:TSLA:AAPL", // 替換為你想分析的股票代碼
     interval: "D",
     timezone: "Asia/Taipei",
     theme: "dark",
-    style: "1",
+    style: "1", // K線圖樣式
     toolbar_bg: "#f1f3f6",
     withdateranges: true,
     allow_symbol_change: true,
