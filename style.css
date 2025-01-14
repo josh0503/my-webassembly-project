@@ -21,6 +21,7 @@ h1 {
 h2 {
     text-align: center;  /* Align the text in the center */
     margin-bottom: 20px; /* Add some space below the title */
+    height: 20px
   }
 
 .converter {
