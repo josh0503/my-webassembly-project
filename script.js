@@ -73,103 +73,28 @@ function clearBMI() {
   document.getElementById('bmiCategory').textContent = "Category: ";
 }
 // <!-------------------------------------------------------------------------------------------------------->
-// function updateChart() {
-//   const symbol = document.getElementById("stockSymbol").value || "2330.TW";
-//   new TradingView.widget({
-//     container_id: "tradingview-widget",
-//     width: "100%", // 圖表寬度設定為全寬
-//     height: 600,   // 增加圖表高度
-//     symbol: symbol, // 使用動態輸入的股票代碼
-//     interval: "D",  // K 線時間間隔為日線
-//     timezone: "Asia/Taipei",
-//     theme: "dark",  // 深色主題
-//     style: "1",     // K 線圖樣式
-//     toolbar_bg: "#f1f3f6",
-//     withdateranges: true,
-//     allow_symbol_change: true,
-//     studies: [
-//         "BB@tv-basicstudies",    // 布林通道
-//         "MAExp@tv-basicstudies", // 均線
-//         "RSI@tv-basicstudies",   // RSI
-//         "MACD@tv-basicstudies",  // MACD
-//         "Stochastic@tv-basicstudies", // 隨機指標
-//         "Volume@tv-basicstudies"  // 成交量
-//     ],
-//     locale: "zh_TW" // 繁體中文介面
-//   });
-// }
+function updateChart(symbol) {
+  // 清空舊的圖表內容
+  document.getElementById("tradingview-widget").innerHTML = "";
 
-// // 預設股票代碼選擇
-// function selectStock(stock) {
-//   document.getElementById("stockSymbol").value = stock;
-//   updateChart();
-// }
-
-// 替換為您的 Alpha Vantage API 金鑰
-const API_KEY = "B4OBQNI5TB9ZJ9TA";
-
-// 使用 Alpha Vantage API 獲取股票資料
-async function fetchStockData(symbol) {
-  const url = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${symbol}&apikey=${API_KEY}`;
-  try {
-    const response = await fetch(url);
-    const data = await response.json();
-    if (data["Error Message"] || !data["Time Series (Daily)"]) {
-      alert("無法獲取股票資料，請確認代碼是否正確或稍後再試。");
-      return null;
-    }
-    return data;
-  } catch (error) {
-    console.error("Error fetching stock data:", error);
-    alert("無法獲取股票資料，請檢查網路連線。");
-    return null;
-  }
-}
-
-// 顯示股票資料在圖表
-async function updateChart() {
-  const symbol = document.getElementById("stockSymbol").value || "AAPL";
-  const data = await fetchStockData(symbol);
-
-  if (data) {
-    const dailyData = data["Time Series (Daily)"];
-    const dates = Object.keys(dailyData).reverse();
-    const prices = dates.map(date => ({
-      date,
-      close: parseFloat(dailyData[date]["4. close"]),
-    }));
-
-    // 繪製圖表
-    renderChart(symbol, prices);
-  }
-}
-
-// 繪製簡單圖表
-function renderChart(symbol, prices) {
-  const ctx = document.getElementById("stockChart").getContext("2d");
-
-  const chartData = {
-    labels: prices.map(item => item.date),
-    datasets: [
-      {
-        label: `${symbol} Closing Prices`,
-        data: prices.map(item => item.close),
-        borderColor: "rgba(75, 192, 192, 1)",
-        backgroundColor: "rgba(75, 192, 192, 0.2)",
-        fill: true,
-      },
+  // 新增 TradingView 圖表
+  new TradingView.widget({
+    container_id: "tradingview-widget",
+    width: "100%",
+    height: "500",
+    symbol: symbol,
+    interval: "D", // 日線
+    timezone: "Asia/Taipei",
+    theme: "dark",
+    style: "1", // K線圖樣式
+    toolbar_bg: "#f1f3f6",
+    withdateranges: true,
+    allow_symbol_change: true,
+    studies: [
+      "BB@tv-basicstudies",    // 布林通道
+      "MAExp@tv-basicstudies", // 均線
+      "RSI@tv-basicstudies",   // RSI
     ],
-  };
-
-  new Chart(ctx, {
-    type: "line",
-    data: chartData,
-    options: {
-      responsive: true,
-      scales: {
-        x: { title: { display: true, text: "Date" } },
-        y: { title: { display: true, text: "Closing Price (USD)" } },
-      },
-    },
+    locale: "zh_TW",
   });
 }

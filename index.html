@@ -99,20 +99,26 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <header>
-  <h1>股票分析與技術指標</h1>
+  <h1>Stock Analysis</h1>
 </header>
 </body>
   <main>
-    <!-- 股票輸入與圖表區 -->
-    <section class="stock-chart">
-      <div class="input-section">
-        <h2>查詢股票代碼</h2>
-        <input type="text" id="stockSymbol" placeholder="輸入股票代碼 (如: 2330.TW)" />
-        <button onclick="updateChart()">顯示圖表</button>
-      </div>  
-      <div class="chart-container">
-       <canvas id="stockChart"></canvas>
+    <section class="stock-buttons">
+      <h2>選擇股票</h2>
+      <div class="button-container">
+        <button onclick="updateChart('.DJI')">道瓊指數 (.DJI)</button>
+        <button onclick="updateChart('.SPX')">標普500 (.SPX)</button>
+        <button onclick="updateChart('.IXIC')">納斯達克指數 (.IXIC)</button>
+        <button onclick="updateChart('.SOX')">費城半導體 (.SOX)</button>
+        <button onclick="updateChart('TSM')">台積電 (TSM)</button>
+        <button onclick="updateChart('NVDA')">輝達 (NVDA)</button>
+        <button onclick="updateChart('TSLA')">特斯拉 (TSLA)</button>
+        <button onclick="updateChart('AAPL')">蘋果 (AAPL)</button>
       </div>
+    </section>
+
+    <section class="chart-container">
+      <div id="tradingview-widget"></div>
     </section>
   </main>
 </body>
