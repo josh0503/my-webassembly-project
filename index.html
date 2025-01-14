@@ -99,19 +99,21 @@
   <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
-</body>
+<body>
   <main>
     <section class="stock">
-      <div class="stock-button"></div>
-          <h2>Stock</h2>
-          <!-- <button onclick="updateChart('DJI')">道瓊指數 (DJI)</button> -->
-          <!-- <button onclick="updateChart('SPX')">標普500 (SPX)</button> -->
-          <stk-button onclick="updateChart('NVDA')">輝達 (NVDA)</stk-button>
-          <stk-button onclick="updateChart('TSLA')">特斯拉 (TSLA)</stk-button>
-          <stk-button onclick="updateChart('AAPL')">蘋果 (AAPL)</stk-button>
-          <stk-button onclick="updateChart('IXIC')">納斯達克指數 (IXIC)</stk-button>
-          <stk-button onclick="updateChart('SOX')">費城半導體 (SOX)</stk-button>
-          <stk-button onclick="updateChart('TSM')">台積電 (TSM)</stk-button>
+      <h2>Stock</h2>
+      <!-- Stock Buttons Container -->
+      <div class="stk-button-container">
+        <!-- <button onclick="updateChart('DJI')">道瓊指數 (DJI)</button>
+        <button onclick="updateChart('SPX')">標普500 (SPX)</button> -->
+        <stk-button onclick="updateChart('NVDA')">輝達 (NVDA)</stk-button>
+        <stk-button onclick="updateChart('TSLA')">特斯拉 (TSLA)</stk-button>
+        <stk-button onclick="updateChart('AAPL')">蘋果 (AAPL)</stk-button>
+        <stk-button onclick="updateChart('IXIC')">納斯達克指數 (IXIC)</stk-button>
+        <stk-button onclick="updateChart('SOX')">費城半導體 (SOX)</stk-button>
+        <stk-button onclick="updateChart('TSM')">台積電 (TSM)</stk-button>
+      </div>
       <div id="tradingview-widget"></div>
     </section>
   </main>
