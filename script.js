@@ -104,60 +104,54 @@ function updateChart(symbol) {
 }
 // <!-------------------------------------------------------------------------------------------------------->
 // Note
-const editor = document.getElementById("editor");
-const preview = document.getElementById("preview");
-const editModeBtn = document.getElementById("editMode");
-const dualModeBtn = document.getElementById("dualMode");
-const viewModeBtn = document.getElementById("viewMode");
-const imageUpload = document.getElementById("imageUpload");
+document.addEventListener("DOMContentLoaded", () => {
+  const noteInput = document.getElementById("noteInput");
+  const addNoteButton = document.getElementById("addNoteButton");
+  const notesList = document.getElementById("notesList");
 
-// 初始內容
-editor.value = "# 歡迎使用 Markdown 編輯器\n\n開始編輯吧！";
-renderMarkdown();
+  // 從 LocalStorage 加載筆記
+  const loadNotes = () => {
+    const notes = JSON.parse(localStorage.getItem("notes")) || [];
+    notes.forEach(note => addNoteToUI(note));
+  };
 
-function renderMarkdown() {
-    try {
-        preview.innerHTML = marked(editor.value || ""); // 預防空值
-    } catch (error) {
-        console.error("Markdown 解析錯誤：", error);
+  // 保存筆記到 LocalStorage
+  const saveNotes = () => {
+    const notes = Array.from(notesList.children).map(li => li.querySelector("span").textContent);
+    localStorage.setItem("notes", JSON.stringify(notes));
+  };
+
+  // 在 UI 中新增筆記
+  const addNoteToUI = (noteText) => {
+    const li = document.createElement("li");
+    const span = document.createElement("span");
+    span.textContent = noteText;
+
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "刪除";
+    deleteButton.addEventListener("click", () => {
+      li.remove();
+      saveNotes();
+    });
+
+    li.appendChild(span);
+    li.appendChild(deleteButton);
+    notesList.appendChild(li);
+  };
+
+  // 點擊新增按鈕時新增筆記
+  addNoteButton.addEventListener("click", () => {
+    const noteText = noteInput.value.trim();
+    if (noteText) {
+      addNoteToUI(noteText);
+      noteInput.value = "";
+      saveNotes();
+    } else {
+      alert("請輸入內容後再新增筆記！");
     }
-}
+  });
 
-// 切換模式
-editModeBtn.addEventListener("click", () => {
-    editor.style.display = "block";
-    preview.style.display = "none";
-    editor.focus();
-});
-
-dualModeBtn.addEventListener("click", () => {
-    editor.style.display = "block";
-    preview.style.display = "block";
-    renderMarkdown();
-});
-
-viewModeBtn.addEventListener("click", () => {
-    editor.style.display = "none";
-    preview.style.display = "block";
-    renderMarkdown(); // 確保顯示模式渲染 Markdown
-});
-
-// 實時更新預覽
-editor.addEventListener("input", renderMarkdown);
-
-// 上傳圖片
-imageUpload.addEventListener("change", (event) => {
-    const file = event.target.files[0];
-    if (file) {
-        const reader = new FileReader();
-        reader.onload = (e) => {
-            const imageUrl = e.target.result;
-            const markdownImage = `![圖片描述](${imageUrl})`;
-            editor.value += markdownImage;
-            renderMarkdown();
-        };
-        reader.readAsDataURL(file);
-    }
+  loadNotes();
 });
 
 // <!-------------------------------------------------------------------------------------------------------->
