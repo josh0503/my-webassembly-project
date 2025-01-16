@@ -102,3 +102,30 @@ function updateChart(symbol) {
     locale: "zh_TW",
   });
 }
+// <!-------------------------------------------------------------------------------------------------------->
+// Note
+document.getElementById('markdown-input').addEventListener('input', (event) => {
+  const markdownText = event.target.value;
+  const htmlContent = marked(markdownText);
+  document.getElementById('markdown-preview').innerHTML = htmlContent;
+});
+
+function saveNote() {
+  const markdownText = document.getElementById('markdown-input').value;
+  localStorage.setItem('savedNote', markdownText);
+  alert('筆記已儲存！');
+}
+
+// 載入已儲存的筆記
+document.addEventListener('DOMContentLoaded', () => {
+  const savedNote = localStorage.getItem('savedNote');
+  if (savedNote) {
+    document.getElementById('markdown-input').value = savedNote;
+    document.getElementById('markdown-preview').innerHTML = marked(savedNote);
+  }
+});
+// <!-------------------------------------------------------------------------------------------------------->
+// <!-------------------------------------------------------------------------------------------------------->
+// <!-------------------------------------------------------------------------------------------------------->
+// <!-------------------------------------------------------------------------------------------------------->
+// <!-------------------------------------------------------------------------------------------------------->
