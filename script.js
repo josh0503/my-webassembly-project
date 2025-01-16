@@ -104,64 +104,54 @@ function updateChart(symbol) {
 }
 // <!-------------------------------------------------------------------------------------------------------->
 // Note
-// 監聽輸入並即時渲染
-document.getElementById("markdown-input").addEventListener("input", () => {
-  renderMarkdown();
+const editor = document.getElementById("editor");
+const preview = document.getElementById("preview");
+const editModeBtn = document.getElementById("editMode");
+const dualModeBtn = document.getElementById("dualMode");
+const viewModeBtn = document.getElementById("viewMode");
+const imageUpload = document.getElementById("imageUpload");
+
+function renderMarkdown() {
+    preview.innerHTML = marked(editor.value);
+}
+
+// 切換模式
+editModeBtn.addEventListener("click", () => {
+    editor.style.display = "block";
+    preview.style.display = "none";
+    editor.focus();
 });
 
-// 渲染 Markdown
-function renderMarkdown() {
-  const markdownText = document.getElementById("markdown-input").value;
-  const htmlContent = marked(markdownText);
-  document.getElementById("markdown-preview").innerHTML = htmlContent;
-}
+dualModeBtn.addEventListener("click", () => {
+    editor.style.display = "block";
+    preview.style.display = "block";
+    renderMarkdown();
+});
 
-// 清除內容
-function clearContent() {
-  document.getElementById("markdown-input").value = "";
-  document.getElementById("markdown-preview").innerHTML = "";
-}
+viewModeBtn.addEventListener("click", () => {
+    editor.style.display = "none";
+    preview.style.display = "block";
+    renderMarkdown();
+});
 
-// 應用格式化
-function applyFormatting(format) {
-  const inputField = document.getElementById("markdown-input");
-  const start = inputField.selectionStart;
-  const end = inputField.selectionEnd;
-  const selectedText = inputField.value.substring(start, end);
+// 實時更新預覽
+editor.addEventListener("input", renderMarkdown);
 
-  let formattedText = "";
-  switch (format) {
-    case "bold":
-      formattedText = `**${selectedText || "粗體文字"}**`;
-      break;
-    case "italic":
-      formattedText = `*${selectedText || "斜體文字"}*`;
-      break;
-    case "heading":
-      formattedText = `# ${selectedText || "標題文字"}`;
-      break;
-    case "code":
-      formattedText = `\`\`\`\n${selectedText || "程式碼"}\n\`\`\``;
-      break;
-    case "blockquote":
-      formattedText = `> ${selectedText || "引用文字"}`;
-      break;
-    case "list":
-      formattedText = `- ${selectedText || "清單項目"}`;
-      break;
-    case "image":
-      formattedText = `![描述](圖片網址)`;
-      break;
-  }
+// 上傳圖片
+imageUpload.addEventListener("change", (event) => {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const imageUrl = e.target.result;
+            const markdownImage = `![圖片描述](${imageUrl})`;
+            editor.value += markdownImage;
+            renderMarkdown();
+        };
+        reader.readAsDataURL(file);
+    }
+});
 
-  const beforeText = inputField.value.substring(0, start);
-  const afterText = inputField.value.substring(end);
-  inputField.value = `${beforeText}${formattedText}${afterText}`;
-  inputField.focus();
-  inputField.selectionStart = inputField.selectionEnd = start + formattedText.length;
-
-  renderMarkdown();
-}
 
 // <!-------------------------------------------------------------------------------------------------------->
 // <!-------------------------------------------------------------------------------------------------------->
