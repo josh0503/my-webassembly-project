@@ -104,26 +104,76 @@ function updateChart(symbol) {
 }
 // <!-------------------------------------------------------------------------------------------------------->
 // Note
-document.getElementById('markdown-input').addEventListener('input', (event) => {
-  const markdownText = event.target.value;
+// 即時預覽
+document.getElementById('markdown-input').addEventListener('input', () => {
+  const markdownText = document.getElementById('markdown-input').value;
   const htmlContent = marked(markdownText);
   document.getElementById('markdown-preview').innerHTML = htmlContent;
 });
 
+// 儲存筆記
 function saveNote() {
   const markdownText = document.getElementById('markdown-input').value;
-  localStorage.setItem('savedNote', markdownText);
+  localStorage.setItem('markdownNote', markdownText);
   alert('筆記已儲存！');
 }
 
-// 載入已儲存的筆記
-document.addEventListener('DOMContentLoaded', () => {
-  const savedNote = localStorage.getItem('savedNote');
+// 載入筆記
+function loadNote() {
+  const savedNote = localStorage.getItem('markdownNote');
   if (savedNote) {
     document.getElementById('markdown-input').value = savedNote;
     document.getElementById('markdown-preview').innerHTML = marked(savedNote);
+  } else {
+    alert('沒有儲存的筆記！');
   }
-});
+}
+
+// 清除內容
+function clearContent() {
+  document.getElementById('markdown-input').value = '';
+  document.getElementById('markdown-preview').innerHTML = '';
+}
+
+// 工具列功能
+function applyFormatting(format) {
+  const inputField = document.getElementById('markdown-input');
+  const start = inputField.selectionStart;
+  const end = inputField.selectionEnd;
+  const selectedText = inputField.value.substring(start, end);
+
+  let formattedText = '';
+  switch (format) {
+    case 'bold':
+      formattedText = `**${selectedText || '粗體文字'}**`;
+      break;
+    case 'italic':
+      formattedText = `*${selectedText || '斜體文字'}*`;
+      break;
+    case 'heading':
+      formattedText = `# ${selectedText || '標題文字'}`;
+      break;
+    case 'code':
+      formattedText = `\`\`\`\n${selectedText || '程式碼'}\n\`\`\``;
+      break;
+    case 'blockquote':
+      formattedText = `> ${selectedText || '引用文字'}`;
+      break;
+    case 'list':
+      formattedText = `- ${selectedText || '清單項目'}`;
+      break;
+    case 'image':
+      formattedText = `![描述](圖片網址)`;
+      break;
+  }
+
+  const beforeText = inputField.value.substring(0, start);
+  const afterText = inputField.value.substring(end);
+  inputField.value = `${beforeText}${formattedText}${afterText}`;
+  inputField.focus();
+  inputField.selectionStart = inputField.selectionEnd = start + formattedText.length;
+}
+
 // <!-------------------------------------------------------------------------------------------------------->
 // <!-------------------------------------------------------------------------------------------------------->
 // <!-------------------------------------------------------------------------------------------------------->

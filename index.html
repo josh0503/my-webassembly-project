@@ -122,24 +122,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Markdown Note Editor</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Advanced Markdown Editor</title>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <header>
-      <h1>筆記編輯器</h1>
+      <h1>進階筆記編輯器</h1>
     </header>
-    
+  
     <main>
       <div class="editor-container">
-        <div class="editor">
-          <textarea id="markdown-input" placeholder="撰寫你的筆記..."></textarea>
-          <button onclick="saveNote()">儲存筆記</button>
+        <!-- 工具列 -->
+        <div class="toolbar">
+          <button onclick="applyFormatting('bold')">粗體</button>
+          <button onclick="applyFormatting('italic')">斜體</button>
+          <button onclick="applyFormatting('heading')">標題</button>
+          <button onclick="applyFormatting('code')">程式碼</button>
+          <button onclick="applyFormatting('blockquote')">引用</button>
+          <button onclick="applyFormatting('list')">清單</button>
+          <button onclick="applyFormatting('image')">插入圖片</button>
+          <button onclick="clearContent()">清除</button>
         </div>
-        <div class="preview">
-          <h2>即時預覽</h2>
+  
+        <!-- 編輯器與預覽 -->
+        <div class="editor-preview">
+          <textarea id="markdown-input" placeholder="撰寫你的筆記..."></textarea>
           <div id="markdown-preview"></div>
+        </div>
+  
+        <!-- 儲存與載入按鈕 -->
+        <div class="save-load">
+          <button onclick="saveNote()">儲存筆記</button>
+          <button onclick="loadNote()">載入筆記</button>
         </div>
       </div>
     </main>
