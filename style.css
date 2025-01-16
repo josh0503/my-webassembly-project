@@ -226,21 +226,21 @@ stk-button:hover {
     height: 800px;
     margin-top: 30px; 
   }
-  /* --------------------------------------- */
-  .editor-container {
+/* --------------------------------------- */
+.editor-container {
     max-width: 1000px;
     margin: 20px auto;
     background-color: white;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  }
+}
   
-  .toolbar {
+.toolbar {
     margin-bottom: 20px;
-  }
+}
   
-  .toolbar button {
+.toolbar button {
     padding: 10px 20px;
     margin-right: 5px;
     background-color: #4CAF50;
@@ -248,18 +248,18 @@ stk-button:hover {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-  }
+}
   
-  .toolbar button:hover {
+.toolbar button:hover {
     background-color: #45a049;
-  }
+}
   
-  .editor-preview {
+.editor-preview {
     display: flex;
     gap: 20px;
-  }
+}
   
-  textarea {
+textarea {
     width: 50%;
     height: 400px;
     padding: 10px;
@@ -267,9 +267,9 @@ stk-button:hover {
     border: 1px solid #ccc;
     border-radius: 4px;
     resize: none;
-  }
+}
   
-  #markdown-preview {
+#markdown-preview {
     width: 50%;
     padding: 10px;
     font-size: 16px;
@@ -277,7 +277,7 @@ stk-button:hover {
     border: 1px solid #ccc;
     border-radius: 4px;
     overflow-y: auto;
-  }
+}
   
 
 /* --------------------------------------- */
