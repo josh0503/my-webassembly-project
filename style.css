@@ -228,21 +228,21 @@ stk-button:hover {
   }
   /* --------------------------------------- */
   .editor-container {
-    margin: 20px;
-    padding: 20px;
+    max-width: 1000px;
+    margin: 20px auto;
     background-color: white;
+    padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
   
   .toolbar {
-    display: flex;
-    gap: 10px;
     margin-bottom: 20px;
   }
   
   .toolbar button {
     padding: 10px 20px;
+    margin-right: 5px;
     background-color: #4CAF50;
     color: white;
     border: none;
@@ -266,33 +266,19 @@ stk-button:hover {
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    resize: none;
   }
   
   #markdown-preview {
     width: 50%;
     padding: 10px;
+    font-size: 16px;
     background-color: #f9f9f9;
     border: 1px solid #ccc;
     border-radius: 4px;
     overflow-y: auto;
   }
   
-  .save-load {
-    margin-top: 20px;
-  }
-  
-  .save-load button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .save-load button:hover {
-    background-color: #45a049;
-  }
 
 /* --------------------------------------- */
 /* --------------------------------------- */

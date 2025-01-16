@@ -104,65 +104,52 @@ function updateChart(symbol) {
 }
 // <!-------------------------------------------------------------------------------------------------------->
 // Note
-// 即時預覽
-document.getElementById('markdown-input').addEventListener('input', () => {
-  const markdownText = document.getElementById('markdown-input').value;
-  const htmlContent = marked(markdownText);
-  document.getElementById('markdown-preview').innerHTML = htmlContent;
+// 監聽輸入並即時渲染
+document.getElementById("markdown-input").addEventListener("input", () => {
+  renderMarkdown();
 });
 
-// 儲存筆記
-function saveNote() {
-  const markdownText = document.getElementById('markdown-input').value;
-  localStorage.setItem('markdownNote', markdownText);
-  alert('筆記已儲存！');
-}
-
-// 載入筆記
-function loadNote() {
-  const savedNote = localStorage.getItem('markdownNote');
-  if (savedNote) {
-    document.getElementById('markdown-input').value = savedNote;
-    document.getElementById('markdown-preview').innerHTML = marked(savedNote);
-  } else {
-    alert('沒有儲存的筆記！');
-  }
+// 渲染 Markdown
+function renderMarkdown() {
+  const markdownText = document.getElementById("markdown-input").value;
+  const htmlContent = marked(markdownText);
+  document.getElementById("markdown-preview").innerHTML = htmlContent;
 }
 
 // 清除內容
 function clearContent() {
-  document.getElementById('markdown-input').value = '';
-  document.getElementById('markdown-preview').innerHTML = '';
+  document.getElementById("markdown-input").value = "";
+  document.getElementById("markdown-preview").innerHTML = "";
 }
 
-// 工具列功能
+// 應用格式化
 function applyFormatting(format) {
-  const inputField = document.getElementById('markdown-input');
+  const inputField = document.getElementById("markdown-input");
   const start = inputField.selectionStart;
   const end = inputField.selectionEnd;
   const selectedText = inputField.value.substring(start, end);
 
-  let formattedText = '';
+  let formattedText = "";
   switch (format) {
-    case 'bold':
-      formattedText = `**${selectedText || '粗體文字'}**`;
+    case "bold":
+      formattedText = `**${selectedText || "粗體文字"}**`;
       break;
-    case 'italic':
-      formattedText = `*${selectedText || '斜體文字'}*`;
+    case "italic":
+      formattedText = `*${selectedText || "斜體文字"}*`;
       break;
-    case 'heading':
-      formattedText = `# ${selectedText || '標題文字'}`;
+    case "heading":
+      formattedText = `# ${selectedText || "標題文字"}`;
       break;
-    case 'code':
-      formattedText = `\`\`\`\n${selectedText || '程式碼'}\n\`\`\``;
+    case "code":
+      formattedText = `\`\`\`\n${selectedText || "程式碼"}\n\`\`\``;
       break;
-    case 'blockquote':
-      formattedText = `> ${selectedText || '引用文字'}`;
+    case "blockquote":
+      formattedText = `> ${selectedText || "引用文字"}`;
       break;
-    case 'list':
-      formattedText = `- ${selectedText || '清單項目'}`;
+    case "list":
+      formattedText = `- ${selectedText || "清單項目"}`;
       break;
-    case 'image':
+    case "image":
       formattedText = `![描述](圖片網址)`;
       break;
   }
@@ -172,6 +159,8 @@ function applyFormatting(format) {
   inputField.value = `${beforeText}${formattedText}${afterText}`;
   inputField.focus();
   inputField.selectionStart = inputField.selectionEnd = start + formattedText.length;
+
+  renderMarkdown();
 }
 
 // <!-------------------------------------------------------------------------------------------------------->
