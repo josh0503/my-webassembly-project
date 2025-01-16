@@ -255,6 +255,7 @@ textarea {
     overflow-y: auto;
     border-left: 1px solid #ccc;
     background: #fafafa;
+    background-color: #fff; /* 確保預覽區域有背景 */   
 }
 
 .hidden {

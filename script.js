@@ -111,8 +111,16 @@ const dualModeBtn = document.getElementById("dualMode");
 const viewModeBtn = document.getElementById("viewMode");
 const imageUpload = document.getElementById("imageUpload");
 
+// 初始內容
+editor.value = "# 歡迎使用 Markdown 編輯器\n\n開始編輯吧！";
+renderMarkdown();
+
 function renderMarkdown() {
-    preview.innerHTML = marked(editor.value);
+    try {
+        preview.innerHTML = marked(editor.value || ""); // 預防空值
+    } catch (error) {
+        console.error("Markdown 解析錯誤：", error);
+    }
 }
 
 // 切換模式
@@ -131,7 +139,7 @@ dualModeBtn.addEventListener("click", () => {
 viewModeBtn.addEventListener("click", () => {
     editor.style.display = "none";
     preview.style.display = "block";
-    renderMarkdown();
+    renderMarkdown(); // 確保顯示模式渲染 Markdown
 });
 
 // 實時更新預覽
@@ -151,7 +159,6 @@ imageUpload.addEventListener("change", (event) => {
         reader.readAsDataURL(file);
     }
 });
-
 
 // <!-------------------------------------------------------------------------------------------------------->
 // <!-------------------------------------------------------------------------------------------------------->
