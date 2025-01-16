@@ -105,54 +105,47 @@ function updateChart(symbol) {
 // <!-------------------------------------------------------------------------------------------------------->
 // Note
 document.addEventListener("DOMContentLoaded", () => {
-  const noteInput = document.getElementById("noteInput");
-  const addNoteButton = document.getElementById("addNoteButton");
-  const notesList = document.getElementById("notesList");
-
-  // 從 LocalStorage 加載筆記
-  const loadNotes = () => {
-    const notes = JSON.parse(localStorage.getItem("notes")) || [];
-    notes.forEach(note => addNoteToUI(note));
-  };
-
-  // 保存筆記到 LocalStorage
-  const saveNotes = () => {
-    const notes = Array.from(notesList.children).map(li => li.querySelector("span").textContent);
-    localStorage.setItem("notes", JSON.stringify(notes));
-  };
-
-  // 在 UI 中新增筆記
-  const addNoteToUI = (noteText) => {
-    const li = document.createElement("li");
-    const span = document.createElement("span");
-    span.textContent = noteText;
-
-    const deleteButton = document.createElement("button");
-    deleteButton.textContent = "刪除";
-    deleteButton.addEventListener("click", () => {
-      li.remove();
-      saveNotes();
-    });
-
-    li.appendChild(span);
-    li.appendChild(deleteButton);
-    notesList.appendChild(li);
-  };
-
-  // 點擊新增按鈕時新增筆記
-  addNoteButton.addEventListener("click", () => {
-    const noteText = noteInput.value.trim();
-    if (noteText) {
-      addNoteToUI(noteText);
-      noteInput.value = "";
-      saveNotes();
-    } else {
-      alert("請輸入內容後再新增筆記！");
-    }
+  // 初始化 Quill 編輯器
+  const quill = new Quill("#editor-container", {
+    theme: "snow",
+    modules: {
+      toolbar: [
+        ["bold", "italic", "underline"], // 粗體、斜體、下劃線
+        ["code-block"],                 // 程式碼塊
+        [{ list: "ordered" }, { list: "bullet" }], // 有序/無序列表
+        ["link"],                       // 插入連結
+      ],
+    },
   });
 
-  loadNotes();
+  const saveNoteButton = document.getElementById("saveNoteButton");
+  const clearNoteButton = document.getElementById("clearNoteButton");
+  const previewContainer = document.getElementById("preview-container");
+
+  // 保存筆記
+  saveNoteButton.addEventListener("click", () => {
+    const noteContent = quill.root.innerHTML; // 獲取編輯器的 HTML 內容
+    localStorage.setItem("noteContent", noteContent); // 存入 LocalStorage
+    previewContainer.innerHTML = noteContent; // 顯示在預覽區
+    alert("筆記已保存！");
+  });
+
+  // 清除筆記
+  clearNoteButton.addEventListener("click", () => {
+    quill.root.innerHTML = ""; // 清空編輯器內容
+    previewContainer.innerHTML = ""; // 清空預覽區
+    localStorage.removeItem("noteContent"); // 從 LocalStorage 移除
+    alert("筆記已清除！");
+  });
+
+  // 頁面加載時載入已保存的筆記
+  const savedNote = localStorage.getItem("noteContent");
+  if (savedNote) {
+    quill.root.innerHTML = savedNote;
+    previewContainer.innerHTML = savedNote;
+  }
 });
+
 
 // <!-------------------------------------------------------------------------------------------------------->
 // <!-------------------------------------------------------------------------------------------------------->
