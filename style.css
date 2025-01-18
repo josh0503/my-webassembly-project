@@ -229,6 +229,7 @@ stk-button:hover {
 /* --------------------------------------- */
 .notes{
     max-width: 1000px;
+    height: 1500px;
     margin: 20px auto;
     padding: 20px;
     background-color: #fff;
